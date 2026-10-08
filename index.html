@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10181a">
+  <title>Operation Nebelkarte · Ost-Berlin 1985</title>
+  <meta name="description" content="Offline-Escape-Room für den Russischunterricht: Ost-Berlin, 1985.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2310181a'/%3E%3Cpath d='M17 45h30V19H17z' fill='%23d9c493' stroke='%23f15a47' stroke-width='4'/%3E%3Cpath d='M24 28h16M24 36h12' stroke='%2310181a' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{--ink:#e9dfc7;--muted:#a9afa6;--paper:#d8c79e;--paper2:#bca978;--red:#e45a48;--teal:#69c0b9;--gold:#e1b85b;--bg:#0c1315;--panel:#172225;--line:#405055;--ok:#74c68a;--bad:#e27866;--shadow:0 18px 55px #0008}
+    *{box-sizing:border-box} html{height:100%;background:var(--bg)} body{margin:0;min-height:100%;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;color:var(--ink);background:radial-gradient(circle at 20% 0,#263639 0,transparent 35%),linear-gradient(145deg,#0d1517,#172326 52%,#0c1214)}
+    button,input{font:inherit} button{cursor:pointer} button:focus-visible,input:focus-visible,[role=button]:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .hidden{display:none!important}.app{min-height:100svh;display:flex;flex-direction:column}.topbar{min-height:70px;padding:12px clamp(14px,3vw,32px);display:flex;align-items:center;gap:16px;border-bottom:1px solid #ffffff22;background:#0b1114d9;backdrop-filter:blur(12px);position:relative;z-index:5}.brand{display:flex;gap:11px;align-items:center;min-width:0}.seal{width:42px;height:42px;border:2px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);font-weight:900;transform:rotate(-7deg);font-size:11px;line-height:1}.brand h1{font-size:clamp(17px,2.4vw,23px);margin:0;letter-spacing:.04em}.brand small{display:block;color:var(--muted);margin-top:3px}.top-actions{margin-left:auto;display:flex;align-items:center;gap:8px}.chip,.lang{border:1px solid var(--line);background:#152023;color:var(--ink);min-height:42px;border-radius:6px;padding:9px 12px}.chip{cursor:default}.lang[aria-pressed=true]{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+    .progressline{height:4px;background:#1d2a2e}.progressline i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .4s}
+    .game{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 320px;min-height:0}.room-wrap{padding:clamp(14px,2vw,28px);display:flex;flex-direction:column;gap:12px}.brief{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:14px}.brief strong{color:var(--ink)}.room{position:relative;min-height:620px;flex:1;overflow:hidden;border:1px solid #46565a;border-radius:10px;background:linear-gradient(#263337 0 54%,#1a2426 54% 57%,#493c31 57%);box-shadow:var(--shadow)}
+    .room:before{content:"";position:absolute;inset:57% 0 0;background:repeating-linear-gradient(103deg,#514235 0 48px,#3c322b 49px 52px);opacity:.72}.room:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 52% 33%,transparent 0 25%,#0007 93%),repeating-linear-gradient(0deg,#fff0 0 3px,#fff008 4px);mix-blend-mode:overlay}
+    .window{position:absolute;left:6%;top:7%;width:26%;height:38%;border:9px solid #12191b;background:linear-gradient(#59717b,#263b42 75%,#18272c);box-shadow:0 0 0 1px #65777b}.window:before,.window:after{content:"";position:absolute;background:#12191b}.window:before{width:7px;height:100%;left:49%}.window:after{height:7px;width:100%;top:48%}.skyline{position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(90deg,#172326 0 12%,transparent 12% 16%,#172326 16% 32%,transparent 32% 39%,#172326 39% 55%,transparent 55% 64%,#172326 64% 100%)}
+    .lamp{position:absolute;left:46%;top:3%;width:9%;height:14%;border-bottom:28px solid #566264;border-left:18px solid transparent;border-right:18px solid transparent;filter:drop-shadow(0 10px 14px #f4c96c55)}.lamp:after{content:"";position:absolute;left:50%;top:27px;width:180px;height:220px;transform:translateX(-50%);clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);background:linear-gradient(#f9df8740,transparent);pointer-events:none}
+    .desk{position:absolute;left:28%;right:6%;bottom:11%;height:24%;background:linear-gradient(#785f43 0 9%,#4b392b 10% 100%);border-radius:5px 5px 0 0;box-shadow:0 22px 0 #2a211c,0 28px 28px #0008}.desk:before,.desk:after{content:"";position:absolute;top:100%;width:5%;height:56%;background:#34271f}.desk:before{left:6%}.desk:after{right:6%}
+    .object{position:absolute;z-index:2;border:0;color:inherit;background:transparent;padding:0;filter:drop-shadow(0 8px 8px #0008);transition:transform .18s,filter .18s}.object:hover,.object:focus-visible{transform:translateY(-5px);filter:drop-shadow(0 10px 12px #000a) drop-shadow(0 0 9px #e1b85b88)}.object .tag{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);white-space:nowrap;border:1px solid #88918c;background:#0a1114e8;padding:5px 8px;border-radius:4px;font-size:13px;opacity:0;transition:opacity .2s}.object:hover .tag,.object:focus-visible .tag{opacity:1}.object.solved:after{content:"✓";position:absolute;right:-8px;top:-8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#0a1710;font-weight:900;border:2px solid #d7f2dd}
+    .folder{left:33%;bottom:30%;width:112px;height:76px;background:#9d7d42;border:2px solid #3e2f1a;transform:rotate(-4deg);border-radius:3px}.folder:before{content:"AKTE 17/B";position:absolute;inset:19px 10px auto;background:#d8c79e;color:#2b2923;padding:8px 3px;font-weight:800;font-size:14px}.folder:hover{transform:translateY(-5px) rotate(-4deg)}
+    .typewriter{left:51%;bottom:29%;width:150px;height:98px;background:#252d2d;border:3px solid #0d1213;border-radius:7px 7px 14px 14px}.typewriter:before{content:"Й Ц У К Е Н Г Ш Щ З";position:absolute;left:12px;right:12px;bottom:15px;padding:10px 5px;background:repeating-linear-gradient(90deg,#c9c3aa 0 10px,#333 11px 13px);color:#111;font-size:10px;font-weight:900;overflow:hidden}.typewriter:after{content:"";position:absolute;width:104px;height:47px;left:20px;top:-42px;background:#d1c8a9;border:5px solid #212828}
+    .radio{right:8%;bottom:30%;width:112px;height:116px;background:#33413f;border:3px solid #101716;border-radius:5px}.radio:before{content:"88  92  96  100";position:absolute;left:9px;right:9px;top:15px;background:#d0bd83;color:#25251f;font-size:10px;padding:7px 3px;border:3px solid #17201f}.radio:after{content:"◉  ◉";position:absolute;left:18px;bottom:16px;font-size:27px;color:#111;letter-spacing:12px}
+    .map{right:6%;top:8%;width:31%;height:34%;background:#c8b98c;border:7px solid #24211c;transform:rotate(1deg);color:#3c3424}.map:before{content:"BERLIN — HAUPTSTADT DER DDR";position:absolute;top:9px;left:8px;font-size:11px;font-weight:900}.map:after{content:"";position:absolute;inset:30px 12px 12px;background:repeating-linear-gradient(25deg,transparent 0 19px,#6f775d 20px 22px),repeating-linear-gradient(100deg,transparent 0 24px,#637575 25px 27px)}.map:hover{transform:translateY(-5px) rotate(1deg)}
+    .locker{left:4%;bottom:6%;width:20%;height:43%;background:linear-gradient(90deg,#3d4b4a,#526261 45%,#344140);border:5px solid #18201f;border-radius:3px}.locker:before{content:"24";position:absolute;left:14px;top:12px;color:#c7d0c7;font-size:25px;font-weight:800}.locker:after{content:"●";position:absolute;right:18px;top:48%;color:#18201f;font-size:34px;text-shadow:0 0 0 2px #82908c}
+    .tape{right:28%;bottom:13%;width:100px;height:62px;background:#242a29;border:3px solid #0b0f0f;border-radius:8px}.tape:before{content:"◉    ◉";position:absolute;inset:12px 8px;background:#b9aa7f;color:#202524;padding:8px;font-size:17px;border-radius:4px}.tape:after{content:"К-85";position:absolute;left:34px;bottom:3px;font-size:9px;color:#ddd}
+    .side{border-left:1px solid #39474b;background:#111a1de8;padding:22px;display:flex;flex-direction:column;gap:17px}.side h2{font-size:16px;margin:0;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}.mission{font-family:Georgia,serif;line-height:1.55;color:#d9d4c8}.mission p{margin:.4rem 0}.status-list{list-style:none;padding:0;margin:0;display:grid;gap:7px}.status-list li{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:14px}.status-list i{width:9px;height:9px;border-radius:50%;background:#536166}.status-list li.done{color:var(--ink)}.status-list li.done i{background:var(--ok);box-shadow:0 0 8px #74c68a88}.side-note{margin-top:auto;border-top:1px dashed #526065;padding-top:14px;font-size:12px;line-height:1.5;color:#89938f}
+    .intro{position:fixed;inset:0;z-index:20;background:radial-gradient(circle at 50% 20%,#27393d,#080d0f 72%);display:grid;place-items:center;padding:18px}.dossier{width:min(760px,100%);max-height:92svh;overflow:auto;background:linear-gradient(105deg,#d9c89e,#bda971);color:#25271f;padding:clamp(24px,5vw,54px);box-shadow:0 28px 90px #000;border:1px solid #e9dcb9;transform:rotate(-.3deg);position:relative}.dossier:before{content:"СТРОГО СЕКРЕТНО";position:absolute;right:23px;top:24px;border:4px solid #a52d2a;color:#a52d2a;padding:8px;font-weight:900;transform:rotate(5deg);opacity:.75}.kicker{font-weight:900;letter-spacing:.16em;color:#8d2e29}.dossier h2{font:700 clamp(28px,6vw,50px)/.95 Georgia,serif;margin:18px 0}.dossier p{font:18px/1.55 Georgia,serif;max-width:620px}.namefield{display:grid;gap:7px;margin:26px 0 18px}.namefield label{font-weight:800}.namefield input{width:100%;min-height:48px;border:0;border-bottom:2px solid #514c3b;background:#ffffff55;padding:8px 11px;color:#222;font-size:17px}.start{width:100%;min-height:54px;border:0;border-radius:4px;background:#222d2e;color:#fff;font-weight:900;font-size:17px}.start:hover{background:#141b1c}.fine{font:13px/1.4 ui-monospace,monospace!important;color:#555246}.fine input{vertical-align:middle}
+    dialog{width:min(760px,calc(100% - 22px));max-height:92svh;background:#182326;color:var(--ink);border:1px solid #56666a;border-radius:10px;padding:0;box-shadow:0 30px 100px #000;overflow:hidden}dialog::backdrop{background:#05090bc9;backdrop-filter:blur(5px)}.modal-head{padding:17px 20px;border-bottom:1px solid #3a484c;display:flex;gap:14px;align-items:center;background:#111a1d}.modal-head .num{width:36px;height:36px;border:1px solid var(--red);color:var(--red);display:grid;place-items:center;border-radius:50%;font-weight:900}.modal-head h2{font-size:18px;margin:0}.close{margin-left:auto;width:42px;height:42px;border:1px solid #526165;color:var(--ink);background:transparent;border-radius:5px;font-size:20px}.modal-body{padding:20px;overflow:auto;max-height:calc(92svh - 72px)}.story{color:var(--muted);font-family:Georgia,serif;margin-top:0}.task{border-left:3px solid var(--gold);padding:12px 15px;background:#10181a;margin:16px 0;line-height:1.55}.russian{font-family:Georgia,"Times New Roman",serif;font-size:18px}.translation{margin-top:9px;padding-top:9px;border-top:1px dashed #4c5a5e;color:#c6d2cf}.evidence{background:var(--paper);color:#2b2921;padding:16px;margin:14px 0;box-shadow:3px 4px 0 #0003;line-height:1.55}.evidence h3{margin:0 0 9px;font-size:14px}.gridcards{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.select-card,.map-point,.word{min-height:48px;border:1px solid #69777a;background:#202d30;color:var(--ink);border-radius:5px;padding:10px}.select-card:hover,.map-point:hover,.word:hover{border-color:var(--gold)}.select-card.selected,.word.selected{background:#513b2c;border-color:var(--gold)}.answer{display:flex;gap:8px;margin-top:18px}.answer input{flex:1;min-width:0;min-height:48px;background:#0d1517;color:#fff;border:1px solid #5a686c;border-radius:4px;padding:9px 12px;font-size:16px;text-transform:uppercase}.check{min-height:48px;border:0;background:var(--red);color:white;border-radius:4px;padding:10px 18px;font-weight:900}.check:hover{filter:brightness(1.1)}.feedback{min-height:24px;margin:9px 0 0}.feedback.ok{color:var(--ok)}.feedback.bad{color:var(--bad)}.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tool{border:1px solid #5d6c6f;background:transparent;color:var(--ink);border-radius:4px;min-height:44px;padding:9px 12px}.tool:hover{border-color:var(--teal)}.hintbox{border:1px dashed #68777b;background:#0e1719;padding:12px;margin-top:10px;color:#c9d0cd}.solution{color:#e8c77c}.sequence{display:flex;flex-wrap:wrap;gap:7px;min-height:52px;padding:8px;background:#0f1719;border:1px dashed #536267;margin:10px 0}.sequence span{background:#49575a;padding:7px;border-radius:3px}.mapgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.map-point{font-size:13px}.radio-dial{display:flex;align-items:center;gap:12px;background:#0e1617;padding:12px}.radio-dial input{width:100%}.freq{min-width:88px;color:var(--gold);font-weight:900}.code-strip{display:flex;gap:8px;justify-content:center;margin:14px 0}.code-strip b{width:48px;height:58px;background:#12191b;border:1px solid #536165;display:grid;place-items:center;font-size:28px;color:var(--gold)}
+    .final{position:fixed;inset:0;z-index:30;background:radial-gradient(circle at 50% 20%,#283b3d,#080d0f 72%);display:grid;place-items:center;padding:18px}.result{width:min(760px,100%);max-height:94svh;overflow:auto;background:#172326;border:1px solid #647477;border-radius:10px;padding:clamp(24px,5vw,48px);box-shadow:0 30px 100px #000;text-align:center}.result .rank{width:122px;height:122px;border-radius:50%;border:3px double var(--gold);display:grid;place-items:center;margin:auto;color:var(--gold);font:800 27px Georgia,serif;transform:rotate(-3deg)}.result h2{font:700 clamp(30px,6vw,48px) Georgia,serif;margin:22px 0 8px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}.stat{background:#0f181a;border:1px solid #3b4a4d;padding:16px 8px}.stat b{display:block;color:var(--gold);font-size:24px;margin-bottom:5px}.message{background:var(--paper);color:#26271f;padding:19px;text-align:left;font:18px/1.55 Georgia,serif;transform:rotate(.4deg);margin:20px 0}.restart{min-height:49px;border:1px solid #6b7a7d;background:transparent;color:#fff;border-radius:4px;padding:10px 17px}
+    @media(max-width:900px){.game{grid-template-columns:1fr}.side{display:none}.room{min-height:680px}.topbar{flex-wrap:wrap}.brand{flex:1}.top-actions{margin-left:0}.chip{display:none}}
+    @media(max-width:600px){.room-wrap{padding:10px}.brief{font-size:12px}.room{min-height:610px}.folder{left:30%;width:90px}.typewriter{left:45%;width:124px}.radio{right:3%;width:90px}.map{right:4%;width:38%}.locker{width:24%}.tape{right:20%}.gridcards,.stats{grid-template-columns:1fr}.answer{flex-direction:column}.dossier:before{position:static;display:inline-block}.modal-body{padding:15px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  
+    .table-scroll{overflow:auto;max-width:100%}table{width:100%;border-collapse:collapse;font-size:15px}th,td{padding:9px 8px;border:1px solid #807453;text-align:left;vertical-align:top}th{background:#c0ac7b}td{min-width:65px}
+    .fieldlabel{display:block;margin:16px 0 6px;font-size:15px;color:var(--ink)}
+    #answerForm input,#answerForm select,textarea{width:100%;min-height:48px;background:#0d1517;color:#fff;border:1px solid #6c7c80;border-radius:4px;padding:10px;font:inherit;font-size:17px}
+    #answerForm .check{margin-top:18px;width:100%}.keys{margin:18px 0}.keys summary,details summary{cursor:pointer;padding:12px;min-height:48px;border:1px solid #6b787b;border-radius:4px}details p{line-height:1.5}
+    .keys>div{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.letter{min-width:44px;min-height:46px;border:1px solid #617176;background:#26383c;color:#fff;border-radius:5px;font-size:18px}
+    .stephead{color:var(--gold);line-height:1.5;font-weight:bold}.stationlink{border:0;background:none;color:inherit;text-align:left;min-height:42px;padding:4px;font:inherit;font-size:14px}
+    .object .tag{opacity:1;font-size:14px}.locker:before{content:"?"}.intro-tool{color:#25271f;border-color:#60553d;margin-bottom:12px}
+    .chip{display:block!important;white-space:nowrap}button:disabled{opacity:.5;cursor:default}.top-actions{flex-wrap:wrap}.topbar{flex-wrap:wrap}.tools{margin-bottom:14px}
+    .modal-body a{color:var(--teal)}.fine{color:inherit}
+    @media(max-width:600px){.brand{flex-basis:100%}.top-actions{width:100%;gap:6px}.lang,.chip{font-size:13px;padding:8px}.room{min-height:720px}.folder{left:31%;bottom:37%;width:90px}.typewriter{left:46%;bottom:23%;width:124px}.radio{right:4%;bottom:40%;width:84px}.tape{right:8%;bottom:9%;width:92px}.desk{bottom:11%;height:40%;left:28%}.locker{bottom:5%;height:40%}.object .tag{font-size:12px}.dossier p{font-size:16px}.stats{grid-template-columns:repeat(3,1fr)}.stat{font-size:12px}.stat b{font-size:20px}.evidence{padding:10px}table{font-size:14px}.modal-head{padding:10px}.modal-head h2{font-size:16px}.modal-head .num{flex-shrink:0}.close{flex-shrink:0}.map{width:45%;right:4%}}
+    #puzzleDialog[open]{display:flex;flex-direction:column;height:min(900px,92vh);height:min(900px,92dvh);max-height:92vh;max-height:92dvh}
+    #puzzleDialog .modal-head{flex:0 0 auto}
+    #puzzleDialog .modal-body{flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+    .puzzle-footer{flex:0 0 auto;padding:12px 20px max(12px,env(safe-area-inset-bottom));border-top:1px solid #56666a;background:#111a1d}
+    .puzzle-footer .footer-actions{display:flex;gap:10px;flex-wrap:wrap}.puzzle-footer .check{flex:1}.puzzle-footer .feedback:empty{display:none}.puzzle-footer .feedback{font-size:14px;line-height:1.4}
+    #answerForm{scroll-margin:12px}.answer-heading{margin-top:24px;color:var(--gold);font-size:17px}
+  </style>
+</head>
+<body>
+  <main class="app" id="app" aria-live="polite">
+    <header class="topbar">
+      <div class="brand"><div class="seal" aria-hidden="true">1985</div><div><h1>OPERATION NEBELKARTE</h1><small>Ost-Berlin · 14. November 1985</small></div></div>
+      <div class="top-actions"><button class="lang" id="notebookBtn" type="button">Notizbuch</button><div class="chip" id="timer">40:00</div><button class="lang" id="langBtn" type="button" aria-pressed="false">RU · <span>DE aus</span></button></div>
+    </header>
+    <div class="progressline"><i id="progress"></i></div>
+    <section class="game">
+      <div class="room-wrap">
+        <div class="brief"><strong id="roomCount">0 / 18 Teilschritte</strong><span>Sechs Stationen · je drei Teilschritte. Beginnt mit der Akte.</span></div>
+        <div class="room" aria-label="Arbeitszimmer mit sechs untersuchbaren Gegenständen">
+          <div class="window"><div class="skyline"></div></div><div class="lamp"></div><div class="desk"></div>
+          <button class="object folder" data-puzzle="file" aria-label="Akte untersuchen"><span class="tag">1 · Akte</span></button>
+          <button class="object typewriter" data-puzzle="typewriter" aria-label="Schreibmaschine untersuchen"><span class="tag">2 · Schreibmaschine</span></button>
+          <button class="object radio" data-puzzle="radio" aria-label="Funkgerät untersuchen"><span class="tag">3 · Funkgerät</span></button>
+          <button class="object map" data-puzzle="map" aria-label="Stadtplan untersuchen"><span class="tag">4 · Stadtplan</span></button>
+          <button class="object locker" data-puzzle="locker" aria-label="Schließfach untersuchen"><span class="tag">5 · Schließfach</span></button>
+          <button class="object tape" data-puzzle="tape" aria-label="Kassette untersuchen"><span class="tag">6 · Kassette</span></button>
+        </div>
+      </div>
+      <aside class="side">
+        <h2>Auftrag</h2>
+        <div class="mission"><p>Die Verbindungsperson „Orion“ ist nicht am Treffpunkt erschienen.</p><p>Findet die sechs Teile ihrer verschwundenen Nachricht, bevor eure Rückfahrt beginnt.</p></div>
+        <h2>Fundstücke</h2><ul class="status-list" id="statusList"></ul>
+        <div class="side-note">Fiktive Unterrichtsgeschichte vor historischem Hintergrund. Schauplätze und Alltagsdetails orientieren sich am geteilten Berlin von 1985.</div>
+      </aside>
+    </section>
+  </main>
+
+  <section class="intro" id="intro">
+    <div class="dossier">
+      <div class="kicker">EINSATZAKTE · 14.11.1985</div><h2>Operation<br>Nebelkarte</h2>
+      <p>Ihr seid westdeutsche Kuriere mit einer unauffälligen Dienstreise-Legende. In einem Arbeitszimmer nahe der Friedrichstraße sollte euch „Orion“ eine Nachricht übergeben. Die Person ist verschwunden – doch sechs Hinweise sind zurückgeblieben.</p>
+      <p>Zielzeit: <strong>40 Minuten</strong>. Sechs Stationen mit je drei Teilschritten. Beginnt bei der Akte und sammelt Fundstücke im Notizbuch. Lest zu zweit oder dritt, vergleicht Belege und wechselt die Rollen nach jeder Station. Russische Aufträge lassen sich übersetzen; Belege bleiben auf Russisch. Zu jedem Teilschritt gibt es gestufte Hinweise. Jeder neue Hinweis kostet 2 Punkte. Nach beiden Hinweisen könnt ihr eine letzte Lösungshilfe für 5 weitere Punkte öffnen. Ohne Hilfen erreicht ihr eine bessere Endwertung; Fehlversuche kosten keine Punkte.</p>
+      <div class="namefield"><label for="teamName">Deckname der Gruppe</label><input id="teamName" maxlength="24" autocomplete="off" placeholder="z. B. Bernstein"></div>
+      <label class="fine"><input type="checkbox" id="soundOn" checked> Dezente Signaltöne verwenden</label>
+      <p id="resumeInfo" class="fine"></p><div class="tools"><button class="tool intro-tool hidden" id="introReset" type="button">Gespeichertes Spiel zurücksetzen</button></div><button class="start" id="startBtn" type="button">AKTE ÖFFNEN · TIMER STARTEN</button>
+      <p class="fine">Alles läuft offline. Deckname, Fortschritt und Notizen werden nur auf diesem Gerät gespeichert, sofern der Browser das erlaubt. Der Timer läuft beim Schließen weiter.</p>
+    </div>
+  </section>
+
+  <dialog id="puzzleDialog" aria-labelledby="puzzleTitle"><div class="modal-head"><div class="num" id="puzzleNum">1</div><h2 id="puzzleTitle"></h2><button class="close" id="closeDialog" aria-label="Schließen">×</button></div><div class="modal-body" id="puzzleBody"></div><div class="puzzle-footer hidden" id="puzzleFooter"><div class="footer-actions"><button class="tool" id="goToAnswer" type="button">Zur Antwort</button><button class="check" id="checkStep" type="button">Teilschritt prüfen</button></div><p class="feedback" id="feedback" role="status"></p></div></dialog>
+
+  <section class="final hidden" id="final"><div class="result"><div class="rank" id="rank">A</div><h2>Nachricht gesichert</h2><p id="teamResult"></p><div class="stats"><div class="stat"><b id="timeStat">00:00</b>Zeit</div><div class="stat"><b id="hintStat">0</b>Hinweise / letzte Hilfen</div><div class="stat"><b id="transStat">0</b>Übersetzungen</div></div><div class="message"><strong>Orions Nachricht:</strong><br><span lang="ru">Я в безопасности. Встречи не будет: поезд опоздал. Письмо у кассы театра. Возвращайтесь через вокзал Фридрихштрассе.</span><br><br>„Ich bin in Sicherheit. Das Treffen fällt aus, weil der Zug verspätet ist. Der Brief liegt an der Theaterkasse. Kehrt über den Bahnhof Friedrichstraße zurück.“<br><br>Ihr habt die Abholzeit 18:35 und das Prüfwort ВОСЕМЬ gesichert. Der Fall ist gelöst.</div><p id="rankText"></p><button class="restart" id="restartBtn">Neu beginnen</button></div></section>
+
+  <script>
+  (() => {
+    'use strict';
+    const $ = s => document.querySelector(s);
+    const $$ = s => [...document.querySelectorAll(s)];
+    const escape = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const table = (heads, rows) => '<div class="table-scroll"><table><thead><tr>'+heads.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+    const doc = (title, body) => '<article class="evidence"><h3>'+title+'</h3>'+body+'</article>';
+    const field = (label, answer, options) => ({label, answer, options});
+    const task = (name, ru, de, evidence, fields, hints) => ({name,ru,de,evidence,fields,hints});
+    const profiles = table(['№','Имя / год','Работа / языки','Четверг'],[
+      ['A','Ирина Вольф · 1948','переводчица · русский, немецкий','до 16:30'],
+      ['B','Анна Кляйн · 1942','врач · русский, немецкий','до 18:00'],
+      ['C','Петер Май · 1951','инженер · русский, немецкий','до 18:00'],
+      ['D','Елена Браун · 1950','учительница · русский, немецкий','до 17:00'],
+      ['E','Мария Фогель · 1949','переводчица · польский, немецкий','до 18:00'],
+      ['F','Вера Кох · 1947','переводчица · русский, немецкий','до 18:00'],
+      ['G','Нина Берг · 1953','врач · русский, немецкий','до 18:00'],
+      ['H','Ольга Рот · 1946','переводчица · русский, немецкий','с 18:00']
+    ]);
+    const plan = table(['Север ↑ / Westen links','Spalte A','Spalte B','Spalte C','Spalte D'],[
+      ['Zeile 1','A1 · Дом · 9','B1 · Мост · 8','C1 · Почта · 4','D1 · Башня · 2'],
+      ['Zeile 2','A2 · Парк · 1','B2 · Киоск · 6','C2 · Музей · 5','D2 · Театр · 3'],
+      ['Zeile 3','A3 · Школа · 7','B3 · Вокзал · 0','C3 · Кафе · 2','D3 · Архив · 8'],
+      ['Zeile 4','A4 · Магазин · 4','B4 · Гостиница · 9','C4 · Двор · 3','D4 · Бюро · 6']
+    ]);
+    const puzzles = {
+      file:{n:1,title:'Akte · Die richtige Verbindung',label:'Akte',needs:[],reward:'Kontakt F: Вера Кох. Personalnummer 27. Rufname ЛИПА. Spaltenfolge für die Schreibmaschine: 3–1–4–2.',steps:[
+        task('Eine Person, vier Bedingungen','Найдите женщину: она родилась после 1945, но до 1950 года; работает переводчицей; говорит по-русски; в четверг работает в 17:30.',
+          'Findet die Frau: geboren nach 1945, aber vor 1950; Übersetzerin; spricht Russisch; arbeitet am Donnerstag um 17:30.',doc('PERSONALKARTEI · 8 PROFILE',profiles),
+          [field('Profilbuchstabe','F',['A','B','C','D','E','F','G','H'])],
+          ['Grenzt erst Geburtsjahre und Beruf ein; prüft dann Sprache und Schicht.','до = bis; с = ab. A ist um 17:30 schon weg, H noch nicht da.']),
+        task('Die Spur am Nachmittag','У контакта три встречи. Сначала архив, потом кафе, наконец бюро. Между встречами не меньше двадцати минут. В архив можно войти только после 16:00. В бюро встреча ровно в 17:00. Выберите три записи.',
+          'Der Kontakt hat drei Termine: zuerst Archiv, dann Café, zuletzt Büro. Dazwischen jeweils mindestens 20 Minuten. Ins Archiv darf man erst nach 16:00. Im Büro ist der Termin genau um 17:00. Wählt die drei Einträge.',
+          doc('BESUCHSBUCH · NICHT JEDER EINTRAG GEHÖRT ZUM KONTAKT',table(['Запись','Место','Время'],[['A','архив','15:50'],['B','кафе','16:20'],['C','бюро','16:45'],['D','архив','16:10'],['E','кафе','16:35'],['F','бюро','17:00'],['G','кафе','16:50'],['H','архив','16:25']])),
+          [field('Archiv → Café → Büro: Buchstabenfolge','DEF')],
+          ['Sucht rückwärts vom festen Bürotermin aus. Mindestens 20 Minuten heißt nicht genau 20 Minuten.','Nur Café 16:35 passt. Archiv 16:25 wäre dafür zu spät.']),
+        task('Das richtige Registerblatt','В бюро осталась карточка. Найдите номер контакта. Затем выберите строку с числом четырнадцать и словом «осень». Код: номер контакта и номер строки, по две цифры.',
+          'Im Büro blieb eine Karte zurück. Findet die Personalnummer des Kontakts. Wählt dann die Zeile mit vierzehn und dem Wort „Herbst“. Code: Personalnummer und Zeilennummer, jeweils zweistellig.',
+          doc('MITARBEITERREGISTER',table(['Имя','Номер'],[['Ирина Вольф','42'],['Вера Кох','27'],['Ольга Рот','14'],['Мария Фогель','31']]))+
+          doc('REGISTERBLATT',table(['Строка','Число','Сезон'],[['03','сорок','осень'],['08','четырнадцать','весна'],['14','четыре','осень'],['19','четырнадцать','осень'],['22','семнадцать','зима']])),
+          [field('Vierstelliger Registercode','2719')],
+          ['четырнадцать bedeutet 14; осень bedeutet Herbst. Die Zeilennummer ist nicht das ausgeschriebene Zahlwort.','Die Personalnummer ist 27. Gesucht ist Zeile 19.'])
+      ]},
+      typewriter:{n:2,title:'Schreibmaschine · Zwei Chiffren',label:'Schreibmaschine',needs:['file'],reward:'Prüfwort ВОСЕМЬ (= acht). Die gültige Karte trägt B. Neue Lesefolge für vierstellige Zahlencodes: 2–4–1–3.',steps:[
+        task('Das durcheinandergeratene Farbband','Читайте столбцы в порядке из личного дела. В каждом столбце читайте сверху вниз. Разделите результат на два слова.',
+          'Lest die Spalten in der Reihenfolge aus der Akte, innerhalb jeder Spalte von oben nach unten. Trennt das Ergebnis in zwei Wörter.',
+          doc('FARBBANDABSCHRIFT',table(['1','2','3','4'],[['Ь','Ь','В','Т'],['Т','К','Е','О'],['Е','О','Р','Л']])),
+          [field('Entschlüsselter Satzanfang','ВЕРЬТЕТОЛЬКО')],
+          ['Im Notizbuch steht die Folge 3–1–4–2. Lest komplette Spalten, keine Zeilen.','Spalte 3 ergibt ВЕР, Spalte 1 ergibt ЬТЕ. Gemeinsam: ВЕРЬТЕ …']),
+        task('Das Prüfwort','В каждой паре первая цифра — строка, вторая — столбец. Расшифруйте слово. Оно обозначает число.',
+          'Bei jedem Zahlenpaar ist die erste Ziffer die Zeile, die zweite die Spalte. Entschlüsselt das Wort. Es bezeichnet eine Zahl.',
+          doc('KOORDINATENTAFEL',table(['','1','2','3','4','5','6'],[['1','А','Б','В','Г','Д','Е'],['2','Ж','З','И','Й','К','Л'],['3','М','Н','О','П','Р','С'],['4','Т','У','Ф','Х','Ц','Ч'],['5','Ш','Щ','Ъ','Ы','Ь','Э'],['6','Ю','Я','Ё','–','?','!']]))+
+          doc('CHIFFRE','13 · 33 · 36 · 16 · 31 · 55'),
+          [field('Prüfwort in Kyrillisch','ВОСЕМЬ'),field('Zahl als Ziffer','8')],
+          ['13 bedeutet Zeile 1, Spalte 3: В. 33 ergibt О.','Das Wort beginnt ВОС… und endet …ЕМЬ.']),
+        task('Eine echte Freigabe','Доверяйте только карточке с сегодняшней датой, номером контакта и новым проверочным словом. На настоящей карточке записан новый порядок цифр.',
+          'Vertraut nur der Karte mit dem heutigen Datum, der Personalnummer des Kontakts und dem neuen Prüfwort. Auf der echten Karte steht eine neue Ziffernreihenfolge.',
+          doc('VIER FREIGABEKARTEN',table(['Карта','Дата','Номер','Слово','Порядок'],[['A','13.11.85','27','ВОСЕМЬ','1324'],['B','14.11.85','27','ВОСЕМЬ','2413'],['C','14.11.85','27','СЕМЬ','4123'],['D','14.11.85','42','ВОСЕМЬ','3241']])),
+          [field('Gültige Karte','B',['A','B','C','D']),field('Neue Reihenfolge','2413')],
+          ['Das heutige Datum steht oben im Spiel. Die Personalnummer liegt im Notizbuch.','Alle drei Merkmale müssen stimmen; die Karte vom Vortag zählt nicht.'])
+      ]},
+      radio:{n:3,title:'Funkgerät · Widersprüchliche Meldungen',label:'Funkgerät',needs:['file'],reward:'Gültig: Meldung D, Kanal 6.240 MHz. Sperre МУЗЕЙ. Route: ВОКЗАЛ → КИОСК → МОСТ → ПОЧТА → ТЕАТР. Abholzeit 18:35; Nummernzusatz 2.',steps:[
+        task('Den echten Funkspruch finden','Позывной — из личного дела. Нужна последняя сегодняшняя передача с этим позывным. Проверка: сумма двух чисел равна восьми. Передачи с неверной проверкой недействительны.',
+          'Verwendet den Rufnamen aus der Akte. Gesucht ist die letzte heutige Meldung mit diesem Rufnamen und gültiger Prüfung: Die beiden Zahlen müssen zusammen acht ergeben.',
+          doc('KURZWELLEN-EMPFANGSBUCH · ABSCHRIFTEN',table(['№','Дата / время','Позывной','Проверка','MHz'],[['A','14.11 · 17:10','ЛИПА','три + пять','5.830'],['B','14.11 · 17:35','ДУБ','два + шесть','6.110'],['C','13.11 · 18:10','ЛИПА','четыре + четыре','7.020'],['D','14.11 · 17:40','ЛИПА','два + шесть','6.240'],['E','14.11 · 17:50','ЛИПА','три + шесть','6.570'],['F','14.11 · 17:25','ЛИПА','один + семь','5.910']])),
+          [field('Meldung','D',['A','B','C','D','E','F']),field('Frequenz in MHz','6.240')],
+          ['Die späteste Meldung insgesamt kann eine falsche Prüfzahl haben.','E fällt wegen 3 + 6 aus. Vergleicht danach A, D und F.']),
+        task('Die Korrektur erkennen','Сравните основной текст и исправление. Запишите закрытое место и четыре пункта маршрута после вокзала.',
+          'Vergleicht Grundtext und Korrektur. Notiert den gesperrten Ort und die vier Wegpunkte nach dem Bahnhof.',
+          doc('MELDUNG D · 17:40','«От вокзала идите к киоску, потом к мосту, затем к музею, наконец к театру.»')+
+          doc('NACHTRAG D · 17:42','«Исправление: музей закрыт. После моста идите не к музею, а к почте. Последний пункт не меняется.»'),
+          [field('Gesperrter Ort','МУЗЕЙ',['МУЗЕЙ','ПОЧТА','ТЕАТР','КИОСК']),field('Wegpunkte: Anfangsbuchstaben in Kyrillisch','КМПТ')],
+          ['„не … а …“ heißt „nicht … sondern …“. Der letzte Punkt bleibt unverändert.','Nach dem мост kommt почта. киоск und театр bleiben Teil des Weges.']),
+        task('Zeitfenster und Zusatznummer','Встреча была назначена на восемнадцать часов двадцать минут. Теперь она на пятнадцать минут позже. Добавка к номеру: из шести вычтите четыре.',
+          'Das Treffen war für 18:20 geplant und findet jetzt 15 Minuten später statt. Nummernzusatz: Zieht vier von sechs ab.',
+          doc('ZEITNOTIZ','«Не перепутайте: позже — не раньше! Запишите время и добавку отдельно.»'),
+          [field('Neue Uhrzeit, HH:MM','18:35'),field('Nummernzusatz','2')],
+          ['позже heißt später. Addiert 15 Minuten zu 18:20.','Der Zusatz ist eine Differenz, keine zweistellige Zahl.'])
+      ]},
+      map:{n:4,title:'Stadtplan · Der Kurierweg',label:'Stadtplan',needs:['radio'],reward:'Abholpunkt ТЕАТР / Theater. Wegmarken 6–8–4–3, Summe 21. Rohcode 6843. Der Plan zeigt einen fiktiven Kurierbezirk in Ost-Berlin.',steps:[
+        task('Vier Punkte finden','Используйте исправленный маршрут из радиограммы. Найдите четыре клетки после вокзала. Запишите координаты по порядку.',
+          'Verwendet den korrigierten Weg aus dem Funkspruch. Findet die vier Felder nach dem Bahnhof und notiert ihre Koordinaten in der richtigen Reihenfolge.',
+          doc('SCHEMATISCHER KURIERPLAN · FIKTIVER BEZIRK',plan+'<p>Kein maßstäblicher Stadtplan Berlins. Alle Rasterfelder stehen für Spielorte. Jede Zahl ist eine Wegmarke.</p>'),
+          [field('Vier Koordinaten, z. B. A1 B2 C3 D4','B2 B1 C1 D2')],
+          ['Der Start ist Вокзал auf B3. Er gehört nicht zu den vier gesuchten Punkten.','Киоск = Kiosk, Мост = Brücke, Почта = Post, Театр = Theater.']),
+        task('Den gesperrten Weg umgehen','Ходите только в соседнюю клетку, не по диагонали. Через музей идти нельзя. От почты до театра есть два коротких пути. Выберите открытый путь и запишите все пять ходов от вокзала: С, Ю, В, З.',
+          'Geht nur in ein benachbartes Feld, nie diagonal. Das Museum ist gesperrt. Von der Post zum Theater gibt es zwei kürzeste Wege; wählt den offenen. Notiert alle fünf Schritte vom Bahnhof: С = Norden, Ю = Süden, В = Osten, З = Westen.',
+          doc('WEGENETZ',plan)+doc('LEGENDE','С = север · Ю = юг · В = восток · З = запад<br>Felder teilen eine Seite = begehbarer Weg. C2 / Музей ist gesperrt.'),
+          [field('Fünf Himmelsrichtungen, kyrillische Buchstaben','ССВВЮ')],
+          ['B3 → B2 → B1 → C1. Überlegt jetzt, wie ihr D2 erreicht, ohne C2 zu betreten.','Der Umweg geht von C1 erst nach D1 und dann nach D2.']),
+        task('Die richtigen Wegmarken','Возьмите числа только у четырёх пунктов исправленного маршрута. Вокзал и дополнительная клетка обхода не считаются. Запишите четыре цифры и их сумму.',
+          'Nehmt nur die Zahlen an den vier Punkten des korrigierten Weges. Startbahnhof und zusätzliches Umwegfeld zählen nicht. Notiert den vierstelligen Rohcode und seine Ziffernsumme.',
+          doc('MARKENREGISTER',plan),
+          [field('Rohcode','6843'),field('Ziffernsumme','21')],
+          ['Nehmt Zahlen von Kiosk, Brücke, Post und Theater; nicht die Koordinaten.','Die Turm-Marke 2 gehört zum Umweg und wird ausgelassen.'])
+      ]},
+      locker:{n:5,title:'Schließfach · Drei Sicherungen',label:'Schließfach',needs:['typewriter','map'],reward:'Fach 23, Schloss 8364, Schlüssel C. Inhalt: Kassette und Bandregel. Echte Bandteile tragen ○. Reihenfolge: Status → Ursache → Fundort → Rückweg. Zusatzsatz: ПЕРЕДАЙТЕ ПИСЬМО, НЕ ПАКЕТ.',steps:[
+        task('Das richtige Fach','Номер ячейки — сумма маршрутных чисел плюс добавка из радиограммы. Нужна действующая квитанция на сегодняшний день с фамилией контакта.',
+          'Fachnummer = Summe der Wegmarken plus Zusatz aus dem Funk. Gesucht ist die heute gültige Quittung mit dem Nachnamen des Kontakts.',
+          doc('QUITTUNGEN',table(['№','Ячейка','Имя','Дата','Статус'],[['A','21','Кох','14.11','действует'],['B','23','Вольф','14.11','действует'],['C','23','Кох','14.11','действует'],['D','23','Кох','13.11','действует'],['E','23','Кох','14.11','отменено'],['F','25','Кох','14.11','действует']])),
+          [field('Fachnummer','23'),field('Quittung','C',['A','B','C','D','E','F'])],
+          ['Die Summe steht beim Stadtplan, der Zusatz beim Funk im Notizbuch.','действует = gültig; отменено = aufgehoben.']),
+        task('Das Zahlenschloss','Поставьте цифры маршрутного кода в новом порядке с настоящей карточки у машинки. Порядок обозначает позиции, не сами цифры.',
+          'Ordnet die Ziffern des Rohcodes nach der neuen Reihenfolge auf der echten Schreibmaschinenkarte. Die Reihenfolge bezeichnet Positionen, nicht die Ziffern selbst.',
+          doc('SCHLOSSREGEL','Пример: код 5678, порядок 3–1–4–2 → 7586.<br><br>Euer Schloss verwendet andere Zahlen. Beide Fundstücke stehen im Notizbuch.'),
+          [field('Vierstelliger Schlosscode','8364')],
+          ['Der Rohcode ist 6843. Lest Ziffer 2, dann 4, dann 1, dann 3.','Ziffer 2 ist 8, Ziffer 4 ist 3.']),
+        task('Der passende Schlüssel','Нужен ключ с тремя зубцами. Он короче шести сантиметров. Метка не красная. На бирке последнее число больше первого ровно на четыре.',
+          'Gesucht ist ein Schlüssel mit drei Zacken, kürzer als sechs Zentimeter, ohne rote Markierung. Auf seinem Anhänger ist die letzte Zahl genau vier größer als die erste.',
+          doc('SCHLÜSSELBRETT',table(['Ключ','Зубцы','Длина','Метка','Бирка'],[['A','3','5 см','красная','2 → 6'],['B','3','7 см','синяя','2 → 6'],['C','3','5 см','синяя','3 → 7'],['D','4','5 см','синяя','3 → 7'],['E','3','5 см','зелёная','2 → 7'],['F','3','6 см','зелёная','4 → 8']])),
+          [field('Schlüssel','C',['A','B','C','D','E','F'])],
+          ['Genau sechs Zentimeter ist nicht kürzer als sechs. Prüft auch die Differenz.','красная = rot; зубцы = Zacken. C erfüllt alle vier Bedingungen.'])
+      ]},
+      tape:{n:6,title:'Kassette · Die verschwundene Nachricht',label:'Kassette',needs:['locker'],reward:'Orion ist sicher. Das Treffen entfällt wegen einer Zugverspätung. Ein Brief wartet im Theater. Rückweg über Bahnhof Friedrichstraße.',steps:[
+        task('Das Band rekonstruieren','Используйте правило из ячейки. Отберите четыре настоящие части и расставьте их по смыслу.',
+          'Verwendet die Bandregel aus dem Schließfach. Wählt die vier echten Teile und ordnet sie nach ihrem Inhalt.',
+          doc('SECHS BANDSTÜCKE',table(['Часть','Метка','Текст'],[['A','○','Письмо у кассы театра.'],['B','△','Пакет у кассы музея.'],['C','○','Возвращайтесь через вокзал Фридрихштрассе.'],['D','○','Я в безопасности.'],['E','○','Встречи не будет: поезд опоздал.'],['F','△','Встреча в музее.']])),
+          [field('Buchstaben der vier Bandstücke in Reihenfolge','DEAC')],
+          ['Im Notizbuch: Kreis-Markierung; Status → Ursache → Fundort → Rückweg.','D beschreibt den Status, E erklärt den Ausfall.']),
+        task('Die Bedeutung prüfen','Проверьте сообщение. Где Орион? Почему встречи не будет? Что нужно забрать и где?',
+          'Prüft die Nachricht: Wie geht es Orion? Warum fällt das Treffen aus? Was soll wo abgeholt werden?',
+          doc('REKONSTRUIERTE ABSCHRIFT','Я в безопасности. Встречи не будет: поезд опоздал. Письмо у кассы театра. Возвращайтесь через вокзал Фридрихштрассе.'),
+          [field('Orions Zustand','В БЕЗОПАСНОСТИ',['В ОПАСНОСТИ','В БЕЗОПАСНОСТИ','НЕИЗВЕСТНО']),field('Grund','ПОЕЗД ОПОЗДАЛ',['ПОЕЗД ОПОЗДАЛ','ТЕАТР ЗАКРЫТ','ПИСЬМО ПРОПАЛО']),field('Gegenstand','ПИСЬМО',['ПАКЕТ','КЛЮЧ','ПИСЬМО']),field('Abholstelle','КАССА ТЕАТРА',['КАССА ТЕАТРА','ВХОД В МУЗЕЙ','КАССА ВОКЗАЛА'])],
+          ['безопасность = Sicherheit; опоздал = hat sich verspätet.','письмо ist ein Brief. касса bedeutet Kasse.']),
+        task('Die Übergabekarte vervollständigen','Соберите итоговую карточку из всех находок. Пароль — расшифрованное число, время — исправленное. Запишите первую букву каждого слова добавочной фразы из ячейки.',
+          'Füllt die Abschlusskarte aus allen Fundstücken aus. Passwort = entschlüsseltes Zahlwort, Zeit = korrigierte Uhrzeit. Notiert außerdem die Anfangsbuchstaben jedes Wortes des Zusatzsatzes aus dem Schließfach.',
+          doc('ÜBERGABEKARTE','Получатель: контакт из личного дела.<br>Пароль: проверочное слово.<br>Время: исправленная радиограмма.<br>Контроль: первые буквы добавочной фразы.'),
+          [field('Personalnummer','27'),field('Passwort (kyrillisch)','ВОСЕМЬ'),field('Uhrzeit','18:35'),field('Kontrollbuchstaben','ППНП')],
+          ['Ihr braucht Akte, Schreibmaschine, Funk und den Zusatzsatz aus dem Fach. Alle Funde stehen im Notizbuch.','ПЕРЕДАЙТЕ ПИСЬМО, НЕ ПАКЕТ hat die Anfangsbuchstaben П–П–Н–П.'])
+      ]}
+    };
+    const glossary = 'после = nach · до = vor/bis · не = nicht · сначала = zuerst · потом = danach · наконец = zuletzt · больше = größer · меньше = kleiner · ровно = genau · позже = später · раньше = früher · первый = erster · последний = letzter · число = Zahl · цифра = Ziffer · строка = Zeile · столбец = Spalte · ключ = Schlüssel · письмо = Brief · пакет = Paket · закрыт = geschlossen · один/два/три/четыре/пять/шесть/семь/восемь/девять/десять = 1/2/3/4/5/6/7/8/9/10';
+    const KEY='nebelkarte-v2';
+    const fresh = () => ({started:false,start:0,finished:0,team:'',sound:true,lang:false,steps:Object.fromEntries(Object.keys(puzzles).map(k=>[k,0])),drafts:{},translated:[],hints:{},revealed:[],notes:'',wrong:0});
+    let state=fresh(),active=null,tick,focusField=0,saving=true;
+    try {const raw=localStorage.getItem(KEY);if(raw){const s=JSON.parse(raw);if(s.version===2&&Object.keys(puzzles).every(k=>Number.isInteger(s.steps?.[k])&&s.steps[k]>=0&&s.steps[k]<=3))state=s;}}catch(e){saving=false;}
+    const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({...state,version:2}));}catch(e){saving=false;}};
+    const solved=id=>state.steps[id]===puzzles[id].steps.length;
+    const stageKey=id=>id+':'+state.steps[id];
+    const elapsed=()=>state.started?Math.max(0,Math.floor(((state.finished||Date.now())-state.start)/1000)):0;
+    const time=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    const normalize=s=>String(s).toUpperCase().replace(/Ё/g,'Е').replace(/[\s.,:;–—>\-→]/g,'');
+    function tone(freq=440){if(!state.sound)return;try{const a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=freq;g.gain.value=.025;o.connect(g);g.connect(a.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.12);o.stop(a.currentTime+.13);o.onended=()=>a.close();}catch(e){}}
+    function counts(){return {hints:Object.values(state.hints).reduce((a,b)=>a+b,0),revealed:state.revealed.length,translations:state.translated.length,total:Object.values(state.steps).reduce((a,b)=>a+b,0)};}
+    function markTranslation(){if(active&&puzzles[active]&&!solved(active)&&state.lang&&!puzzles[active].needs.some(n=>!solved(n))){const k=stageKey(active);if(!state.translated.includes(k))state.translated.push(k);save();}}
+    function updateTimer(){const left=2400-elapsed();$('#timer').textContent=left>=0?time(left):'+'+time(-left);$('#timer').style.color=left<0?'var(--gold)':'';$('#timer').title=left<0?'Zielzeit überschritten. Ihr könnt weiterspielen.':'Zielzeit: 40 Minuten';}
+    function updateRoom(){const c=counts();$('#progress').style.width=c.total/18*100+'%';$('#roomCount').textContent=c.total+' / 18 Teilschritte';$('#statusList').innerHTML=Object.entries(puzzles).map(([id,p])=>'<li class="'+(solved(id)?'done':'')+'"><i></i><button class="stationlink" data-open="'+id+'">'+p.n+'. '+p.label+' · '+state.steps[id]+'/3</button></li>').join('');
+      Object.entries(puzzles).forEach(([id,p])=>{$('[data-puzzle="'+id+'"]').classList.toggle('solved',solved(id));$('[data-puzzle="'+id+'"]').setAttribute('aria-label',p.label+', '+state.steps[id]+' von 3 Teilschritten');});$$('[data-open]').forEach(b=>b.onclick=()=>open(b.dataset.open));$('#langBtn').setAttribute('aria-pressed',state.lang);$('#langBtn span').textContent=state.lang?'DE an':'DE aus';}
+    function start(){if(!state.started){state.started=true;state.start=Date.now();state.team=$('#teamName').value.trim()||'Unbekannt';state.sound=$('#soundOn').checked;save();}$('#intro').classList.add('hidden');clearInterval(tick);tick=setInterval(updateTimer,1000);updateTimer();updateRoom();if(state.finished)finish();}
+    function open(id){active=id;markTranslation();render();if(!$('#puzzleDialog').open)$('#puzzleDialog').showModal();}
+    function close(){$('#puzzleDialog').close();}
+    function render(){
+      const body=$('#puzzleBody');
+      $('#puzzleFooter').classList.add('hidden');
+      $('#feedback').textContent='';$('#feedback').className='feedback';
+      if(active==='notebook'){renderNotebook();return;}
+      const p=puzzles[active],idx=state.steps[active],blocked=p.needs.filter(n=>!solved(n));
+      $('#puzzleNum').textContent=p.n;$('#puzzleTitle').textContent=p.title;
+      if(solved(active)){body.innerHTML='<div class="hintbox solution"><h3>Station abgeschlossen</h3>'+escape(p.reward)+'</div><button class="tool" id="bookHere">Funde im Notizbuch</button>';$('#bookHere').onclick=()=>open('notebook');return;}
+      if(blocked.length){body.innerHTML='<p>Hier fehlen noch Fundstücke. Bearbeitet zuerst:</p>'+blocked.map(n=>'<button class="tool" data-go="'+n+'">'+puzzles[n].label+'</button>').join(' ')+'<p class="story">Ihr könnt den Raum weiter erkunden. Die nötigen Funde werden automatisch ins Notizbuch übernommen.</p>';$$('[data-go]').forEach(b=>b.onclick=()=>open(b.dataset.go));return;}
+      const t=p.steps[idx],key=stageKey(active),values=state.drafts[key]||[],hintCount=state.hints[key]||0;
+      $('#puzzleFooter').classList.remove('hidden');
+      body.innerHTML='<div class="stephead">TEILSCHRITT '+(idx+1)+' / 3 · '+escape(t.name)+'</div><div class="task"><div lang="ru" class="russian">'+escape(t.ru)+'</div>'+(state.lang?'<div class="translation">'+escape(t.de)+'</div>':'')+'</div>'+
+        '<div class="tools"><button class="tool" id="translateHere">'+(state.lang?'DE ausblenden':'Auftrag auf Deutsch')+'</button><button class="tool" id="bookHere">Notizbuch & Funde</button><button class="tool" id="vocabHere">Wortschatzhilfe</button></div>'+t.evidence+
+        '<form id="answerForm"><h3 class="answer-heading">Eure Antwort</h3>'+t.fields.map((f,i)=>'<label class="fieldlabel" for="field'+i+'">'+escape(f.label)+'</label>'+(f.options?'<select id="field'+i+'" data-field="'+i+'"><option value="">Bitte wählen …</option>'+f.options.map(o=>'<option value="'+escape(o)+'" '+(values[i]===o?'selected':'')+'>'+escape(o)+'</option>').join('')+'</select>':'<input id="field'+i+'" data-field="'+i+'" autocomplete="off" autocapitalize="characters" spellcheck="false" value="'+escape(values[i]||'')+'">')).join('')+
+        (t.fields.some(f=>/[А-Я]/.test(f.answer))?'<details class="keys"><summary>Kyrillische Bildschirmtastatur</summary><p>Erst ein Textfeld antippen, dann Buchstaben wählen.</p><div>'+[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'].map(c=>'<button type="button" class="letter" data-letter="'+c+'">'+c+'</button>').join('')+'<button type="button" class="letter" data-letter=" ">Leer</button><button type="button" class="letter" id="backspace">⌫</button></div></details>':'')+
+        '</form>'+
+        '<div class="tools"><button class="tool" id="hintBtn" '+(hintCount>=2?'disabled':'')+'>'+(hintCount>=2?'Beide Hinweise geöffnet':'Hinweis '+(hintCount+1)+' / 2 · −2 Punkte')+'</button>'+(hintCount>=2?'<button class="tool" id="solutionBtn">Letzte Lösungshilfe · −5 Punkte</button>':'')+'</div><div id="solutionConfirm"></div>'+
+        t.hints.slice(0,hintCount).map((h,i)=>'<div class="hintbox">Hinweis '+(i+1)+': '+escape(h)+'</div>').join('')+
+        (state.revealed.includes(key)?'<div class="hintbox solution">Lösung: '+t.fields.map(f=>escape(f.label)+': <strong>'+escape(f.answer)+'</strong>').join('<br>')+'<p>Tragt die Lösung ein, um weiterzugehen.</p></div>':'');
+      focusField=Math.min(focusField,t.fields.length-1);
+      $$('[data-field]').forEach(el=>{el.onfocus=()=>focusField=+el.dataset.field;el.oninput=()=>{state.drafts[key]=t.fields.map((_,i)=>$('#field'+i).value);save();};});
+      $('#answerForm').onsubmit=e=>{e.preventDefault();check();};
+      $('#checkStep').onclick=()=>check();
+      $('#translateHere').onclick=toggleLang;$('#bookHere').onclick=()=>open('notebook');
+      $('#vocabHere').onclick=()=>{if(!state.translated.includes(key))state.translated.push(key);save();let v=$('#vocab');if(!v){v=document.createElement('div');v.id='vocab';v.className='hintbox';$('#vocabHere').parentElement.after(v);}v.textContent=glossary+' · Wortschatzhilfe zählt wie Übersetzung für diesen Teilschritt.';};
+      $('#hintBtn').onclick=()=>{state.hints[key]=Math.min(2,hintCount+1);save();render();};
+      if(hintCount>=2) $('#solutionBtn').onclick=()=>{$('#solutionConfirm').innerHTML='<div class="hintbox">Die letzte Lösungshilfe zeigt die gesuchten Eingaben und kostet einmalig 5 weitere Punkte. <button class="tool" id="confirmSolution">Letzte Lösungshilfe öffnen</button></div>';$('#confirmSolution').onclick=()=>{if(!state.revealed.includes(key))state.revealed.push(key);save();render();};};
+      $$('[data-letter]').forEach(b=>b.onclick=()=>writeLetter(b.dataset.letter));
+      if($('#backspace'))$('#backspace').onclick=()=>writeLetter(null);
+    }
+    function writeLetter(letter){const input=$('#field'+focusField);if(!input||input.tagName!=='INPUT'){const first=$('#answerForm input');if(!first)return;focusField=+first.dataset.field;return writeLetter(letter);}const a=input.selectionStart??input.value.length,b=input.selectionEnd??a;let pos=a;if(letter===null){const from=a===b?Math.max(0,a-1):a;input.value=input.value.slice(0,from)+input.value.slice(b);pos=from;}else{input.value=input.value.slice(0,a)+letter+input.value.slice(b);pos=a+letter.length;}input.focus();input.setSelectionRange(pos,pos);input.dispatchEvent(new Event('input'));}
+    function check(){const id=active,key=stageKey(id),t=puzzles[id].steps[state.steps[id]],vals=t.fields.map((_,i)=>$('#field'+i).value);state.drafts[key]=vals;
+      if(vals.some(v=>!v.trim())){$('#feedback').textContent='Bitte füllt alle Felder aus.';return;}
+      if(!vals.every((v,i)=>normalize(v)===normalize(t.fields[i].answer))){state.wrong++;save();$('#feedback').textContent='Die Kombination stimmt noch nicht. Prüft die Belege gemeinsam; Fehlversuche kosten keine Punkte.';$('#feedback').className='feedback bad';tone(150);return;}
+      state.steps[id]++;save();tone(700);updateRoom();
+      if(Object.keys(puzzles).every(solved)){finish();return;}
+      markTranslation();render();$('#puzzleBody').scrollTop=0;
+      if(!solved(id)){const msg=document.createElement('p');msg.className='feedback ok';msg.textContent='Richtig — nächster Teilschritt freigelegt.';$('#puzzleBody').prepend(msg);}
+    }
+    function toggleLang(){state.lang=!state.lang;markTranslation();save();updateRoom();if(active&&puzzles[active])render();}
+    function renderNotebook(){const body=$('#puzzleBody');$('#puzzleNum').textContent='N';$('#puzzleTitle').textContent='Notizbuch · eure Funde';
+      body.innerHTML='<p>Gesicherte Fundstücke bleiben hier verfügbar. Eigene Notizen werden auf diesem Gerät gespeichert, soweit der Browser dies erlaubt.</p>'+
+        Object.entries(puzzles).map(([id,p])=>'<div class="hintbox"><strong>'+p.label+' · '+state.steps[id]+'/3</strong><p>'+escape(solved(id)?p.reward:'Noch kein vollständiges Fundstück.')+'</p><button class="tool" data-go="'+id+'">Zur Station</button></div>').join('')+
+        '<label class="fieldlabel" for="notes">Eigene Notizen</label><textarea id="notes" rows="5">'+escape(state.notes)+'</textarea><p class="fine">'+(saving?'Fortschritt wird lokal gespeichert.':'Speichern ist hier nicht verfügbar. Lasst die Datei geöffnet.')+'</p>';
+      $('#notes').oninput=()=>{state.notes=$('#notes').value;save();};$$('[data-go]').forEach(b=>b.onclick=()=>open(b.dataset.go));}
+    function finish(){if(!state.finished){state.finished=Date.now();save();}clearInterval(tick);close();const c=counts(),bonus=(18-c.translations)*2,over=Math.min(20,Math.max(0,Math.ceil((elapsed()-2400)/60))),score=Math.max(0,100+bonus-c.hints*2-c.revealed*5-over),rank=score>=125?'S':score>=105?'A':score>=80?'B':'C';
+      $('#rank').textContent='RANG '+rank;$('#teamResult').textContent='Deckname „'+state.team+'“ · '+score+' Punkte';$('#timeStat').textContent=time(elapsed());$('#hintStat').textContent=c.hints+' / '+c.revealed;$('#transStat').textContent=c.translations+' / 18';
+      $('#rankText').textContent='Sprachbonus: +'+bonus+' Punkte für '+(18-c.translations)+' Teilschritte ohne Übersetzung. Hinweise: −'+(c.hints*2)+', letzte Hilfen: −'+(c.revealed*5)+', Überzeit: −'+over+'.';$('#final').classList.remove('hidden');updateRoom();}
+    function reset(){if(!window.confirm('Neues Spiel beginnen? Der Fortschritt dieser Mission und die eigenen Notizen werden gelöscht.'))return;state=fresh();save();location.reload();}
+    $('#startBtn').onclick=start;$('#langBtn').onclick=toggleLang;$('#closeDialog').onclick=close;$('#puzzleDialog').addEventListener('close',()=>active=null);
+    $$('[data-puzzle]').forEach(b=>b.onclick=()=>{if(state.started)open(b.dataset.puzzle);});$('#restartBtn').onclick=reset;
+    $('#notebookBtn').onclick=()=>open('notebook');$('#introReset').onclick=reset;
+    $('#goToAnswer').onclick=()=>{const form=$('#answerForm');if(form){form.scrollIntoView({block:'start'});$('#field0').focus({preventScroll:true});}};
+    if(state.started){$('#teamName').value=state.team;$('#startBtn').textContent=state.finished?'ERGEBNIS ANZEIGEN':'MISSION FORTSETZEN';$('#introReset').classList.remove('hidden');$('#resumeInfo').textContent='Gespeicherter Fortschritt: '+counts().total+'/18. Die Missionszeit läuft seit dem ursprünglichen Start weiter.';}
+    updateRoom();
+  })();
+</script>
+</body>
+</html>
